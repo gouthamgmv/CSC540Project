@@ -1,15 +1,17 @@
 /*
- Navicat Oracle Data Transfer
+ Navicat Premium Data Transfer
 
  Source Server         : DB-NCSU
+ Source Server Type    : Oracle
  Source Server Version : 112010
  Source Host           : ora.csc.ncsu.edu
  Source Schema         : SZHANG29
 
+ Target Server Type    : Oracle
  Target Server Version : 112010
  File Encoding         : utf-8
 
- Date: 10/25/2015 15:22:56 PM
+ Date: 10/28/2015 17:46:34 PM
 */
 
 -- ----------------------------
@@ -46,30 +48,30 @@ COMMIT;
 --  Table structure for Student
 -- ----------------------------
 DROP TABLE "SZHANG29"."Student";
-CREATE TABLE "Student" (   "Patron_id" NUMBER NOT NULL, "Student_fname" VARCHAR2(20BYTE) NOT NULL, "Student_lname" VARCHAR2(20BYTE) NOT NULL, "Student_pnumber" VARCHAR2(10BYTE), "Student_apnumber" VARCHAR2(10BYTE), "Student_street" VARCHAR2(20BYTE), "Student_city" VARCHAR2(20BYTE), "Student_postcode" VARCHAR2(10BYTE), "Student_birth" DATE NOT NULL, "Student_sex" VARCHAR2(10BYTE) NOT NULL, "Student_nationality" VARCHAR2(10BYTE) NOT NULL, "Department_id" NUMBER NOT NULL, "Student_classification" VARCHAR2(15BYTE) NOT NULL, "Student_program" VARCHAR2(10BYTE) NOT NULL, "Student_category" VARCHAR2(30BYTE) NOT NULL);
+CREATE TABLE "Student" (   "Patron_id" NUMBER NOT NULL, "Student_fname" VARCHAR2(20BYTE) NOT NULL, "Student_lname" VARCHAR2(20BYTE) NOT NULL, "Student_pnumber" VARCHAR2(10BYTE), "Student_apnumber" VARCHAR2(10BYTE), "Student_street" VARCHAR2(20BYTE), "Student_city" VARCHAR2(20BYTE), "Student_postcode" VARCHAR2(10BYTE), "Student_birth" VARCHAR2(30BYTE), "Student_sex" VARCHAR2(10BYTE) NOT NULL, "Student_nationality" VARCHAR2(10BYTE) NOT NULL, "Department_id" NUMBER NOT NULL, "Student_classification" VARCHAR2(15BYTE) NOT NULL, "Student_program" VARCHAR2(10BYTE) NOT NULL, "Student_category" VARCHAR2(30BYTE) NOT NULL);
 
 -- ----------------------------
 --  Records of Student
 -- ----------------------------
-INSERT INTO "SZHANG29"."Student" VALUES ('2', 'Walt', 'Jr.', '123456780', '123456781', '1512 Graduate Lane', 'Raleigh, NC', '27606     ', TO_DATE('1988-11-03 11:53:01','YYYY-MM-DD HH24:MI:SS'), 'Male', 'AMerican  ', '1', 'Undergraduate  ', 'BS        ', 'Second Year                   ');
-INSERT INTO "SZHANG29"."Student" VALUES ('3', 'Gale', 'Boetticher', '123456782', '123456783', '1513 Graduate Lane', 'Raleigh, NC', '27606     ', TO_DATE('1988-12-03 11:54:15','YYYY-MM-DD HH24:MI:SS'), 'Male', 'Chile     ', '1', 'Undergraduate  ', 'BS        ', 'Third Year                    ');
-INSERT INTO "SZHANG29"."Student" VALUES ('1', 'Jesse', 'Pinkman', '123456789', '123456787', '1511 Graduate Lane', 'Raleigh, NC', '27606     ', TO_DATE('1988-10-03 11:50:20','YYYY-MM-DD HH24:MI:SS'), 'Male', 'American  ', '1', 'Undergraduate  ', 'BS        ', 'First Year                    ');
-INSERT INTO "SZHANG29"."Student" VALUES ('4', 'Saul', 'Goodman', '123456784', '123456785', '1514 Graduate Lane', 'Raleigh, NC', '27606     ', TO_DATE('1988-01-03 11:55:22','YYYY-MM-DD HH24:MI:SS'), 'Male', 'American  ', '1', 'Graduate       ', 'MS        ', 'Second Year                   ');
+INSERT INTO "SZHANG29"."Student" VALUES ('2', 'Walt', 'Jr.', '123456780', '123456781', '1512 Graduate Lane', 'Raleigh, NC', '27606     ', '10/03/1988', 'Male', 'AMerican  ', '1', 'Undergraduate  ', 'BS        ', 'Second Year                   ');
+INSERT INTO "SZHANG29"."Student" VALUES ('3', 'Gale', 'Boetticher', '123456782', '123456783', '1513 Graduate Lane', 'Raleigh, NC', '27606     ', '09/10/1988', 'Male', 'Chile     ', '1', 'Undergraduate  ', 'BS        ', 'Third Year                    ');
+INSERT INTO "SZHANG29"."Student" VALUES ('1', 'Jesse', 'Pinkman', '123456789', '123456787', '1511 Graduate Lane', 'Raleigh, NC', '27606     ', '10/03/1988', 'Male', 'American  ', '1', 'Undergraduate  ', 'BS        ', 'First Year                    ');
+INSERT INTO "SZHANG29"."Student" VALUES ('4', 'Saul', 'Goodman', '123456784', '123456785', '1514 Graduate Lane', 'Raleigh, NC', '27606     ', '01/03/1988', 'Male', 'American  ', '1', 'Graduate       ', 'MS        ', 'Second Year                   ');
 COMMIT;
 
 -- ----------------------------
 --  Table structure for RoomReservation
 -- ----------------------------
 DROP TABLE "SZHANG29"."RoomReservation";
-CREATE TABLE "RoomReservation" (   "Room_id" NUMBER NOT NULL, "Patron_id" NUMBER NOT NULL, "RoomReservation_start" DATE NOT NULL, "RoomReservation_due" DATE NOT NULL, "Lib_id" NUMBER NOT NULL);
+CREATE TABLE "RoomReservation" (   "Room_id" NUMBER NOT NULL, "Patron_id" NUMBER NOT NULL, "RoomReservation_start" DATE NOT NULL, "RoomReservation_due" DATE NOT NULL);
 
 -- ----------------------------
 --  Records of RoomReservation
 -- ----------------------------
-INSERT INTO "SZHANG29"."RoomReservation" VALUES ('3', '5', TO_DATE('2015-10-10 09:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-10 11:30:00','YYYY-MM-DD HH24:MI:SS'), '2');
-INSERT INTO "SZHANG29"."RoomReservation" VALUES ('5', '1', TO_DATE('2015-10-12 15:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-12 17:00:00','YYYY-MM-DD HH24:MI:SS'), '1');
-INSERT INTO "SZHANG29"."RoomReservation" VALUES ('6', '8', TO_DATE('2015-10-15 11:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-15 13:30:00','YYYY-MM-DD HH24:MI:SS'), '2');
-INSERT INTO "SZHANG29"."RoomReservation" VALUES ('1', '6', TO_DATE('2015-10-20 09:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-20 10:30:00','YYYY-MM-DD HH24:MI:SS'), '1');
+INSERT INTO "SZHANG29"."RoomReservation" VALUES ('3', '5', TO_DATE('2015-10-10 09:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-10 11:30:00','YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SZHANG29"."RoomReservation" VALUES ('5', '1', TO_DATE('2015-10-12 15:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-12 17:00:00','YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SZHANG29"."RoomReservation" VALUES ('6', '8', TO_DATE('2015-10-15 11:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-15 13:30:00','YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO "SZHANG29"."RoomReservation" VALUES ('1', '6', TO_DATE('2015-10-20 09:00:00','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-20 10:30:00','YYYY-MM-DD HH24:MI:SS'));
 COMMIT;
 
 -- ----------------------------
@@ -88,6 +90,21 @@ INSERT INTO "SZHANG29"."Room" VALUES ('4', '1', '3rd Floor', '3', 'avail', 'Conf
 INSERT INTO "SZHANG29"."Room" VALUES ('5', '1', '3rd Floor', '4', 'avail', 'StudyRoom', 'R5');
 INSERT INTO "SZHANG29"."Room" VALUES ('6', '2', '3rd Floor', '4', 'avail', 'StudyRoom', 'R6');
 INSERT INTO "SZHANG29"."Room" VALUES ('7', '1', '2nd Floor', '2', 'avail', 'StudyRoom', 'R7');
+COMMIT;
+
+-- ----------------------------
+--  Table structure for PublicationReservation
+-- ----------------------------
+DROP TABLE "SZHANG29"."PublicationReservation";
+CREATE TABLE "PublicationReservation" (   "Patron_id" NUMBER NOT NULL, "Publication_id" NUMBER NOT NULL, "PublicationReservation_start" DATE NOT NULL, "PublicationReservation_due" DATE NOT NULL, "PublicationReservation_fee" NUMBER);
+
+-- ----------------------------
+--  Records of PublicationReservation
+-- ----------------------------
+INSERT INTO "SZHANG29"."PublicationReservation" VALUES ('1', '3', TO_DATE('2015-11-23 17:39:31','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-11-08 17:39:35','YYYY-MM-DD HH24:MI:SS'), null);
+INSERT INTO "SZHANG29"."PublicationReservation" VALUES ('4', '7', TO_DATE('2015-11-01 17:40:12','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-11-06 17:40:19','YYYY-MM-DD HH24:MI:SS'), null);
+INSERT INTO "SZHANG29"."PublicationReservation" VALUES ('2', '4', TO_DATE('2015-07-01 17:40:31','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-08-08 17:40:40','YYYY-MM-DD HH24:MI:SS'), null);
+INSERT INTO "SZHANG29"."PublicationReservation" VALUES ('3', '3', TO_DATE('2015-10-23 17:41:59','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-10 17:42:06','YYYY-MM-DD HH24:MI:SS'), null);
 COMMIT;
 
 -- ----------------------------
@@ -163,7 +180,7 @@ CREATE TABLE "Journal" (   "Journal_ISSN" VARCHAR2(10BYTE) NOT NULL, "Journal_au
 --  Records of Journal
 -- ----------------------------
 INSERT INTO "SZHANG29"."Journal" VALUES ('J1', 'Roberto Navigli', '2010', 'avail', 'Journal of Web Semantic', '9', 'hardcopy');
-INSERT INTO "SZHANG29"."Journal" VALUES ('J2', 'Tim Berners Lee', '2011', 'avail', 'International Journal on Semantic Web and Information', '10', null);
+INSERT INTO "SZHANG29"."Journal" VALUES ('J2', 'Tim Berners Lee', '2011', 'avail', 'International Journal on Semantic Web and Information', '10', 'hardcopy');
 COMMIT;
 
 -- ----------------------------
@@ -279,21 +296,6 @@ INSERT INTO "SZHANG29"."Camera" VALUES ('3', 'Cannon', 'EOS Rebal T4i', '18-135m
 COMMIT;
 
 -- ----------------------------
---  Table structure for BookReservation
--- ----------------------------
-DROP TABLE "SZHANG29"."BookReservation";
-CREATE TABLE "BookReservation" (   "Patron_id" NUMBER NOT NULL, "Publication_id" NUMBER NOT NULL, "BookReservation_start" DATE NOT NULL, "BookReservation_due" DATE NOT NULL, "BookReservation_fee" NUMBER);
-
--- ----------------------------
---  Records of BookReservation
--- ----------------------------
-INSERT INTO "SZHANG29"."BookReservation" VALUES ('1', '3', TO_DATE('2015-11-23 17:39:31','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-11-08 17:39:35','YYYY-MM-DD HH24:MI:SS'), null);
-INSERT INTO "SZHANG29"."BookReservation" VALUES ('4', '7', TO_DATE('2015-11-01 17:40:12','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-11-06 17:40:19','YYYY-MM-DD HH24:MI:SS'), null);
-INSERT INTO "SZHANG29"."BookReservation" VALUES ('2', '4', TO_DATE('2015-07-01 17:40:31','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-08-08 17:40:40','YYYY-MM-DD HH24:MI:SS'), null);
-INSERT INTO "SZHANG29"."BookReservation" VALUES ('3', '3', TO_DATE('2015-10-23 17:41:59','YYYY-MM-DD HH24:MI:SS'), TO_DATE('2015-10-10 17:42:06','YYYY-MM-DD HH24:MI:SS'), null);
-COMMIT;
-
--- ----------------------------
 --  Table structure for Book
 -- ----------------------------
 DROP TABLE "SZHANG29"."Book";
@@ -303,15 +305,15 @@ CREATE TABLE "Book" (   "Book_ISBN" VARCHAR2(30BYTE) NOT NULL, "Book_title" VARC
 --  Records of Book
 -- ----------------------------
 INSERT INTO "SZHANG29"."Book" VALUES ('B1', 'Introduction to Chemistry', '1', 'SK Goyal', '2005', 'Pub1', '13', 'avail', 'No', 'electronic');
-INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry                 ', '2', 'HC Verma', '2006', 'Pub2', '14', 'avail', 'No', 'electronic');
-INSERT INTO "SZHANG29"."Book" VALUES ('B3', 'Introduction to Physical Chemistry                ', '3', 'Resnick Halliday Walker', '2000', 'Pub3', '6', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry', '2', 'HC Verma', '2006', 'Pub2', '14', 'avail', 'No', 'electronic');
+INSERT INTO "SZHANG29"."Book" VALUES ('B3', 'Introduction to Physical Chemistry', '3', 'Resnick Halliday Walker', '2000', 'Pub3', '6', 'avail', 'No', 'hardcopy');
 INSERT INTO "SZHANG29"."Book" VALUES ('B4', 'Introduction to Inorganic Chemistry', '4', 'RC Mukherjee', '2005', 'Pub4', '7', 'avail', 'No', 'hardcopy');
 INSERT INTO "SZHANG29"."Book" VALUES ('B4', 'Introduction to Inorganic Chemistry', '4', 'RC Mukherjee', '2005', 'Pub4', '8', 'avail', 'No', 'hardcopy');
-INSERT INTO "SZHANG29"."Book" VALUES ('B1                            ', 'Introduction to Chemistry                         ', '1', 'SK Goyal', '2005', 'Pub1', '1', 'avail', 'No', 'hardcopy');
-INSERT INTO "SZHANG29"."Book" VALUES ('B1                            ', 'Introduction to Chemistry                         ', '1', 'SK Goyal', '2005', 'Pub1', '2', 'avail', 'No', 'hardcopy');
-INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry                 ', '2', 'HC Verma', '2006', 'Pub2', '3', 'avail', 'No', 'hardcopy');
-INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry                 ', '2', 'HC Verma', '2006', 'Pub2', '4', 'avail', 'No', 'hardcopy');
-INSERT INTO "SZHANG29"."Book" VALUES ('B3                            ', 'Introduction to Physical Chemistry                ', '3', 'Resnick Halliday Walker', '2000', 'Pub3', '5', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B1                            ', 'Introduction to Chemistry', '1', 'SK Goyal', '2005', 'Pub1', '1', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B1                            ', 'Introduction to Chemistry', '1', 'SK Goyal', '2005', 'Pub1', '2', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry', '2', 'HC Verma', '2006', 'Pub2', '3', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B2                            ', 'Introduction to Organic Chemistry', '2', 'HC Verma', '2006', 'Pub2', '4', 'avail', 'No', 'hardcopy');
+INSERT INTO "SZHANG29"."Book" VALUES ('B3                            ', 'Introduction to Physical Chemistry', '3', 'Resnick Halliday Walker', '2000', 'Pub3', '5', 'avail', 'No', 'hardcopy');
 COMMIT;
 
 -- ----------------------------
@@ -342,27 +344,37 @@ ALTER TABLE "SZHANG29"."Student" ADD CONSTRAINT "SYS_C00828481" PRIMARY KEY("Pat
 -- ----------------------------
 --  Checks structure for table Student
 -- ----------------------------
-ALTER TABLE "SZHANG29"."Student" ADD CONSTRAINT "SYS_C00816644" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816645" CHECK ("Student_fname" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816646" CHECK ("Student_lname" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816647" CHECK ("Student_birth" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816648" CHECK ("Student_sex" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816649" CHECK ("Student_nationality" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816650" CHECK ("Department_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816651" CHECK ("Student_classification" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816652" CHECK ("Student_program" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816653" CHECK ("Student_category" IS NOT NULL) ENABLE;
+ALTER TABLE "SZHANG29"."Student" ADD CONSTRAINT "SYS_C00816644" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816645" CHECK ("Student_fname" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816646" CHECK ("Student_lname" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816648" CHECK ("Student_sex" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816649" CHECK ("Student_nationality" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816650" CHECK ("Department_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816651" CHECK ("Student_classification" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816652" CHECK ("Student_program" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816653" CHECK ("Student_category" IS NOT NULL) ENABLE;
 
 -- ----------------------------
 --  Primary key structure for table RoomReservation
 -- ----------------------------
-ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "SYS_C00836355" PRIMARY KEY("Room_id","Patron_id","Lib_id");
+ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "SYS_C00849521" PRIMARY KEY("Room_id","Patron_id");
 
 -- ----------------------------
 --  Checks structure for table RoomReservation
 -- ----------------------------
-ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "SYS_C00836348" CHECK ("Room_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836349" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836350" CHECK ("RoomReservation_start" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836353" CHECK ("RoomReservation_due" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836354" CHECK ("Lib_id" IS NOT NULL) ENABLE;
+ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "SYS_C00836348" CHECK ("Room_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836349" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836350" CHECK ("RoomReservation_start" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836353" CHECK ("RoomReservation_due" IS NOT NULL) ENABLE;
 
 -- ----------------------------
 --  Primary key structure for table Room
 -- ----------------------------
-ALTER TABLE "SZHANG29"."Room" ADD CONSTRAINT "SYS_C00836345" PRIMARY KEY("Room_id","Lib_id");
+ALTER TABLE "SZHANG29"."Room" ADD CONSTRAINT "SYS_C00849522" PRIMARY KEY("Room_id");
 
 -- ----------------------------
 --  Checks structure for table Room
 -- ----------------------------
 ALTER TABLE "SZHANG29"."Room" ADD CONSTRAINT "SYS_C00816673" CHECK ("Room_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816674" CHECK ("Lib_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816675" CHECK ("Room_position" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816676" CHECK ("Room_capacity" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00826961" CHECK ("Room_avail" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836344" CHECK ("Room_type" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836352" CHECK ("Room_num" IS NOT NULL) ENABLE;
+
+-- ----------------------------
+--  Primary key structure for table PublicationReservation
+-- ----------------------------
+ALTER TABLE "SZHANG29"."PublicationReservation" ADD CONSTRAINT "SYS_C00836874" PRIMARY KEY("Patron_id","Publication_id");
+
+-- ----------------------------
+--  Checks structure for table PublicationReservation
+-- ----------------------------
+ALTER TABLE "SZHANG29"."PublicationReservation" ADD CONSTRAINT "SYS_C00836870" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836871" CHECK ("Publication_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836872" CHECK ("PublicationReservation_start" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836875" CHECK ("PublicationReservation_due" IS NOT NULL) ENABLE;
 
 -- ----------------------------
 --  Primary key structure for table PublicationQ
@@ -403,11 +415,6 @@ ALTER TABLE "SZHANG29"."Library" ADD CONSTRAINT "SYS_C00827761" PRIMARY KEY("Lib
 --  Checks structure for table Library
 -- ----------------------------
 ALTER TABLE "SZHANG29"."Library" ADD CONSTRAINT "SYS_C00816684" CHECK ("Lib_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00816685" CHECK ("Lib_name" IS NOT NULL) ENABLE;
-
--- ----------------------------
---  Primary key structure for table Journal
--- ----------------------------
-ALTER TABLE "SZHANG29"."Journal" ADD CONSTRAINT "SYS_C00828492" PRIMARY KEY("Publication_id");
 
 -- ----------------------------
 --  Checks structure for table Journal
@@ -495,16 +502,6 @@ ALTER TABLE "SZHANG29"."Camera" ADD CONSTRAINT "SYS_C00836363" PRIMARY KEY("Came
 ALTER TABLE "SZHANG29"."Camera" ADD CONSTRAINT "SYS_C00836337" CHECK ("Camera_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836338" CHECK ("Camera_make" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836339" CHECK ("Camera_model" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836340" CHECK ("Camera_lens" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836341" CHECK ("Camera_mem" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836342" CHECK ("Lib_id" IS NOT NULL) ENABLE;
 
 -- ----------------------------
---  Primary key structure for table BookReservation
--- ----------------------------
-ALTER TABLE "SZHANG29"."BookReservation" ADD CONSTRAINT "SYS_C00836874" PRIMARY KEY("Patron_id","Publication_id");
-
--- ----------------------------
---  Checks structure for table BookReservation
--- ----------------------------
-ALTER TABLE "SZHANG29"."BookReservation" ADD CONSTRAINT "SYS_C00836870" CHECK ("Patron_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836871" CHECK ("Publication_id" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836872" CHECK ("BookReservation_start" IS NOT NULL) ENABLE ADD CONSTRAINT "SYS_C00836875" CHECK ("BookReservation_due" IS NOT NULL) ENABLE;
-
--- ----------------------------
 --  Primary key structure for table Book
 -- ----------------------------
 ALTER TABLE "SZHANG29"."Book" ADD CONSTRAINT "SYS_C00842277" PRIMARY KEY("Publication_id");
@@ -532,12 +529,17 @@ ALTER TABLE "SZHANG29"."Student" ADD CONSTRAINT "Student_Department" FOREIGN KEY
 -- ----------------------------
 --  Foreign keys structure for table RoomReservation
 -- ----------------------------
-ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "RoomReservation_Patron" FOREIGN KEY ("Patron_id") REFERENCES "SZHANG29"."Patron" ("Patron_id") ON DELETE CASCADE ENABLE ADD CONSTRAINT "RoomReservation_Room" FOREIGN KEY ("Room_id", "Lib_id") REFERENCES "SZHANG29"."Room" ("Room_id", "Lib_id") ON DELETE CASCADE ENABLE;
+ALTER TABLE "SZHANG29"."RoomReservation" ADD CONSTRAINT "RoomReservation_Patron" FOREIGN KEY ("Patron_id") REFERENCES "SZHANG29"."Patron" ("Patron_id") ON DELETE CASCADE ENABLE;
 
 -- ----------------------------
 --  Foreign keys structure for table Room
 -- ----------------------------
 ALTER TABLE "SZHANG29"."Room" ADD CONSTRAINT "Room_Lib" FOREIGN KEY ("Lib_id") REFERENCES "SZHANG29"."Library" ("Lib_id") ON DELETE CASCADE ENABLE;
+
+-- ----------------------------
+--  Foreign keys structure for table PublicationReservation
+-- ----------------------------
+ALTER TABLE "SZHANG29"."PublicationReservation" ADD CONSTRAINT "PR_Patron" FOREIGN KEY ("Patron_id") REFERENCES "SZHANG29"."Patron" ("Patron_id") ENABLE ADD CONSTRAINT "PR_Publication" FOREIGN KEY ("Publication_id") REFERENCES "SZHANG29"."Publication" ("Publication_id") ENABLE;
 
 -- ----------------------------
 --  Foreign keys structure for table PublicationQ
@@ -578,11 +580,6 @@ ALTER TABLE "SZHANG29"."CameraQ" ADD CONSTRAINT "CameraQ_Camera" FOREIGN KEY ("C
 --  Foreign keys structure for table Camera
 -- ----------------------------
 ALTER TABLE "SZHANG29"."Camera" ADD CONSTRAINT "Camera_Lib" FOREIGN KEY ("Lib_id") REFERENCES "SZHANG29"."Library" ("Lib_id") ENABLE;
-
--- ----------------------------
---  Foreign keys structure for table BookReservation
--- ----------------------------
-ALTER TABLE "SZHANG29"."BookReservation" ADD CONSTRAINT "BookReservation_Patron" FOREIGN KEY ("Patron_id") REFERENCES "SZHANG29"."Patron" ("Patron_id") ENABLE ADD CONSTRAINT "BookReservation_Publication" FOREIGN KEY ("Publication_id") REFERENCES "SZHANG29"."Publication" ("Publication_id") ENABLE;
 
 -- ----------------------------
 --  Foreign keys structure for table Book
